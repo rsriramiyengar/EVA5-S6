@@ -2,7 +2,7 @@ from __future__ import print_function
 import torch
 #import nueral net model in the torch
 import torch.nn as nn
-import torch.nn.functional as nnF
+import torch.nn.functional as F
 import torch.optim as optim
 #torchvision is the libraray in torch that has many features
 #and we are using datasets and transforms from this library 
@@ -35,11 +35,11 @@ class GhostBatchNorm(BatchNorm):
     def forward(self, input):
         N, C, H, W = input.shape
         if self.training or not self.track_running_stats:
-            return nnF.batch_norm(
+            return F.batch_norm(
                 input.view(-1, C * self.num_splits, H, W), self.running_mean, self.running_var,
                 self.weight.repeat(self.num_splits), self.bias.repeat(self.num_splits),
                 True, self.momentum, self.eps).view(N, C, H, W)
         else:
-            return nnF.batch_norm(
+            return F.batch_norm(
                 input, self.running_mean[:self.num_features], self.running_var[:self.num_features],
                 self.weight, self.bias, False, self.momentum, self.eps)
