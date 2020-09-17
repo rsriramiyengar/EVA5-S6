@@ -1,3 +1,4 @@
+import torch.nn as nn
 class Net(nn.Module):
     def __init__(self,gbatnor):
         super(Net, self,gbatnor).__init__()
