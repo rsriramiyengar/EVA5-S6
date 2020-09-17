@@ -1,3 +1,13 @@
+from __future__ import print_function
+import torch
+#import nueral net model in the torch
+import torch.nn as nn
+import torch.nn.functional as nnF
+import torch.optim as optim
+#torchvision is the libraray in torch that has many features
+#and we are using datasets and transforms from this library 
+from torchvision import datasets, transforms
+
 class GhostBatchNorm(BatchNorm):
     def __init__(self, num_features, num_splits, **kw):
         super().__init__(num_features, **kw)
