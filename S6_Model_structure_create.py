@@ -1,7 +1,7 @@
 import torch.nn as nn
 class Net(nn.Module):
     def __init__(self,gbatnor):
-        super(Net, self,gbatnor).__init__()
+        super(self,gbatnor).__init__()
         self.gbatnor=gbatnor
         print("Create the instance of the Net class with GBN = {}".format(gbatnor))
         # Input Block
