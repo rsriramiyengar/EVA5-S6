@@ -1,6 +1,7 @@
 import torch
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
+from torchvision import datasets, transforms
 
 def init_train_test_loader(batch_size = 128):
 
