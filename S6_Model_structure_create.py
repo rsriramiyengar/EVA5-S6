@@ -1,4 +1,7 @@
 import torch.nn as nn
+!pip install torchsummary
+from torchsummary import summary
+
 class Net(nn.Module):
     def __init__(self,gbatnor):
         super(Net,self).__init__()
