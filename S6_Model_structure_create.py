@@ -1,5 +1,4 @@
 import torch.nn as nn
-!pip install torchsummary
 from torchsummary import summary
 
 class Net(nn.Module):
