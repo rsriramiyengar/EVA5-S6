@@ -59,7 +59,7 @@ class Net(nn.Module):
         x = x.view(-1, 10)
         return F.log_softmax(x, dim=-1)
         
- def create_model(device, gbn_en):
-    model = Net(gbn_en).to(device)
+def create_model(device,gbatnor):
+    model = Net(gbatnor).to(device)
     summary(model, input_size=(1, 28, 28))
     return model
