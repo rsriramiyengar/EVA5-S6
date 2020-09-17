@@ -17,7 +17,7 @@ class Net(nn.Module):
         # output_size = 24
         # TRANSITION BLOCK 1
         
-         self.pool1 = nn.MaxPool2d(2, 2) # output_size = 12
+        self.pool1 = nn.MaxPool2d(2, 2) # output_size = 12
         if gbatnor:
             self.convblock3 = nn.Sequential(nn.Conv2d(in_channels=16, out_channels=8, kernel_size=(1, 1), padding=0, bias=False),nn.ReLU(),GhostBatchNorm(8,2)) 
         else:
