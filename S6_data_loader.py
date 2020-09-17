@@ -1,3 +1,4 @@
+import torch
 def init_train_test_loader(batch_size = 128):
 
     print("\n Initialize train and test loader with Batch Size:{}".format(batch_size))
