@@ -1,4 +1,5 @@
 from torch.optim.lr_scheduler import StepLR
+import torch.optim as optim
 
 def init_training(model, device, train_loader, epochs, step_lr=True, l1_lambda=None, l2_en=False):
 
