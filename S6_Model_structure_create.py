@@ -60,7 +60,7 @@ class Net(nn.Module):
         x = self.convblock6(x)
         x = self.gap(x)
         x = x.view(-1, 10)
-        return F.log_softmax(x, dim=-1)
+        return nnF.log_softmax(x, dim=-1)
         
 def create_model(device,gbatnor):
     model = Net(gbatnor).to(device)
