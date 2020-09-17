@@ -17,13 +17,21 @@ def init_training(model, device, train_loader, epochs, step_lr=True, l1_lambda=N
 
     if step_lr:
         scheduler = StepLR(optimizer, step_size=5, gamma=0.1)
-    
+    train_losses=[]
+    train_acc=[]
+    test_losses=[]
+    test_acc=[]
     for epoch in range(epochs):
 
-        train(model, device, train_loader, optimizer, epoch, l1_lambda)
-
+        train_losses1,train_acc1=train(model, device, train_loader, optimizer, epoch, l1_lambda)
+        train_losses.append(train_losses1)
+        train_acc.append(train_acc1)
         if step_lr:
             scheduler.step()
 
-        print('\n Epoch {}, lr {}'.format(epoch, optimizer.param_groups[0]['lr']))
-        test(model, device, test_loader)
+        print('\n Epoch {}, lr {}'.format(epoch+1, optimizer.param_groups[0]['lr']))
+        test_losses1,test_acc1=test(model, device, test_loader)
+        test_losses.append(test_losses1)
+        test_acc.append(test_acc1)
+    return train_losses,train_acc,test_losses,test_acc
+    
