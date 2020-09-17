@@ -1,4 +1,7 @@
 import torch
+use_cuda = torch.cuda.is_available()
+device = torch.device("cuda" if use_cuda else "cpu")
+
 def init_train_test_loader(batch_size = 128):
 
     print("\n Initialize train and test loader with Batch Size:{}".format(batch_size))
