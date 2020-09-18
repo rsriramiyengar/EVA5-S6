@@ -56,7 +56,7 @@ def train(model, device, train_loader, optimizer, epoch, l1_lambda=None):
     pbar.set_description(desc= f'Loss={loss.item()} Batch_id={batch_idx} Accuracy={100*correct/processed:0.2f}')
     train_acc.append(100*correct/processed)
     
-    return loss,100*correct/processed
+    #return loss,100*correct/processed
 
 def test(model, device, test_loader):
     model.eval()
@@ -79,4 +79,4 @@ def test(model, device, test_loader):
     
     test_acc.append(100. * correct / len(test_loader.dataset))
     
-    return test_loss,100. * correct / len(test_loader.dataset)
+    #return test_loss,100. * correct / len(test_loader.dataset)
