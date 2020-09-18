@@ -33,5 +33,6 @@ def init_training(model, device, train_loader, epochs, step_lr=True, l1_lambda=N
         test_losses1,test_acc1=test(model, device, test_loader)
         test_losses.append(test_losses1)
         test_acc.append(test_acc1)
+        
     return train_losses,train_acc,test_losses,test_acc
     
